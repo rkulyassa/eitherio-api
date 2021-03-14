@@ -6,9 +6,9 @@ Clone `eitherapi.py` into cwd, then import wherever you want.
 
 ## Usage
 ```py
-from eitherapi import eitherio
+from eitherapi import Eitherio
 
-q = eitherio().get_question()
+q = Eitherio().get_question()
 print(q)
 ```
 ### Sample output:
