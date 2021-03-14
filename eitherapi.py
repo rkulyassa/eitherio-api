@@ -5,15 +5,15 @@ class Eitherio:
 
   def __init__(self):
     res = requests.get('https://either.io').content.decode()
-    self.html = BeautifulSoup(res, 'html.parser')
-    self.title = self.html.find('h2', {'id':'question-title'}).getText()
-    self.author = self.html.find('span', {'id':'question-author'}).getText()[9:]
-    self.link = self.html.find('input', {'type':'hidden'})['value']
-    self.tags = [tag.getText().replace('\n','') for tag in self.html.find_all('ul', {'class':'tags'})]
-    self.comments = int(self.html.find('span', {'class':'comment-number'}).getText().replace(',',''))
-    self.choices = self.html.find_all('span', {'class':'option-text'})
-    self.percentages = self.html.find_all('div', {'class':'percentage'})
-    self.votes = self.html.find_all('span', {'class':'count'})
+    html = BeautifulSoup(res, 'html.parser')
+    self.title = html.find('h2', {'id':'question-title'}).getText()
+    self.author = html.find('span', {'id':'question-author'}).getText()[9:]
+    self.link = html.find('input', {'type':'hidden'})['value']
+    self.tags = [tag.getText().replace('\n','') for tag in html.find_all('ul', {'class':'tags'})]
+    self.comments = int(html.find('span', {'class':'comment-number'}).getText().replace(',',''))
+    self.choices = html.find_all('span', {'class':'option-text'})
+    self.percentages = html.find_all('div', {'class':'percentage'})
+    self.votes = html.find_all('span', {'class':'count'})
 
   def get_question(self):
     '''
