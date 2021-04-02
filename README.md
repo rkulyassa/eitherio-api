@@ -2,7 +2,7 @@
 Simple python module and web api for https://either.io
 
 ## Installation
-Clone this repository into your current working directory, then import wherever you want.
+Clone this repository into your current working directory, run `pip install -r requirements.txt` to install all deps then import wherever you want.
 
 ## Module
 ### Usage
@@ -36,6 +36,7 @@ print(q)
 ## api
 
 ### Usage
+install all deps: `pip install -r requirements.txt`
 
 start the server: `python3 api.py`
 
