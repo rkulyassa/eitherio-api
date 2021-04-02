@@ -1,17 +1,18 @@
 # eitherio-api
-Simple python web api for https://either.io
+Simple python module and web api for https://either.io
 
 ## Installation
-Clone `eitherapi.py` into cwd, then import wherever you want.
+Clone this repository into your current working directory, then import wherever you want.
 
-## Usage
+## Module
+### Usage
 ```py
 from eitherapi import Eitherio
 
 q = Eitherio().get_question()
 print(q)
 ```
-### Sample output:
+#### Sample output:
 ```py
 {
     'title': 'Exotic Homes',
@@ -31,3 +32,36 @@ print(q)
     }
 }
 ```
+
+## api
+
+### Usage
+
+start the server: `python3 api.py`
+
+send GET requests to `/api/question`
+
+#### Sample output:
+
+```sh
+❯ curl http://127.0.0.1:5000/api/question
+{
+  "author": "Zach Dunn",
+  "choice_1": {
+    "percentage": "29%",
+    "text": "Only listen to bagpipe music",
+    "votes": 443785
+  },
+  "choice_2": {
+    "percentage": "71%",
+    "text": "Only listen to banjo music",
+    "votes": 1112244
+  },
+  "comments": 654,
+  "link": "http://either.io/228/country-bagpipes",
+  "tags": [
+    "Life"
+  ],
+  "title": "Country Bagpipes"
+}
+``` 
